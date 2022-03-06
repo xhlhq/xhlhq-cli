@@ -1,6 +1,6 @@
 {
   "name": "@xhlhq-cli/core",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "cli core",
   "keywords": [
     "xhlhq-cli",
@@ -18,7 +18,7 @@
     "lib"
   ],
   "bin": {
-    "xhlhq-cli":"bin/index.js"
+    "xhlhq-cli": "bin/index.js"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
