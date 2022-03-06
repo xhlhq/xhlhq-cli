@@ -17,7 +17,14 @@
   "files": [
     "lib"
   ],
+  "bin": {
+    "xhlhq-cli":"bin/index.js"
+  },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "gitHead": "4c98bd0125540c515a8fcbfbd031567b63b3cd84",
+  "publishConfig": {
+    "access": "public"
   }
 }
