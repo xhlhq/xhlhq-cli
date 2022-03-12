@@ -26,13 +26,16 @@
   "dependencies": {
     "@xhlhq-cli/log": "../../utils/log",
     "colors": "^1.4.0",
+    "dotenv": "^16.0.0",
     "import-local": "^3.1.0",
     "minimist": "^1.2.5",
     "npmlog": "^6.0.1",
     "path-exists": "^4.0.0",
     "root-check": "^1.0.0",
     "semver": "^7.3.5",
-    "user-home": "^3.0.0"
+    "untildify": "^4.0.0",
+    "user-home": "^3.0.0",
+    "xhlhq-cli": "^1.0.1"
   },
   "gitHead": "7dd99cc12371c6b395ae44771aedbbaa6578ff0a",
   "publishConfig": {

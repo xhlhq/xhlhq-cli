@@ -2,10 +2,13 @@
 
 module.exports = core;
 
+const path = require('path')
 const log = require('@xhlhq-cli/log')
 const colors = require('colors/safe')
 const semver = require('semver')
 const userHome = require('user-home')
+const {homedir} = require('os')
+const untildify = require('untildify');
 const pathExists = require('path-exists').sync
 const minimist = require('minimist')
 
@@ -13,6 +16,7 @@ const pkg = require('../package.json')
 const constant = require('./const')
 
 let args;
+let config;
 
 function core() {
     try {
@@ -21,6 +25,7 @@ function core() {
         checkRoot();
         checkUserHome();
         chectInputArgs();
+        checkEnv()
         // debug模式
         log.verbose('debug','test debug log');
     } catch (error) {
@@ -61,7 +66,6 @@ function checkUserHome() {
 // 检查入参
 function chectInputArgs() {
     args = minimist(process.argv.slice(2))
-    console.log('参数',args)
     checkArgs()
 }
 
@@ -73,4 +77,20 @@ function checkArgs() {
         process.env.LOG_LEVEL = 'info'
     }
     log.level = process.env.LOG_LEVEL
+}
+
+// 检查环境变量
+function checkEnv() {
+    const dotenv = require('dotenv')
+    // 查找环境变量的位置
+    const dotenvPath = path.resolve(userHome, '.env')
+    console.log('获取主目录',dotenvPath)
+    console.log('ss',homedir())
+    // 如果存在则获取环境变量
+    if(pathExists(dotenvPath)) {
+        config = dotenv.config({
+            path: dotenvPath
+        })
+    }
+    console.log('config',config)
 }
