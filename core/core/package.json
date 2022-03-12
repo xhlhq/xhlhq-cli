@@ -24,7 +24,7 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@xhlhq-cli/log": "../../utils/log",
+    "@xhlhq-cli/log": "^1.0.4",
     "colors": "^1.4.0",
     "dotenv": "^16.0.0",
     "import-local": "^3.1.0",
@@ -37,7 +37,7 @@
     "user-home": "^3.0.0",
     "xhlhq-cli": "^1.0.1"
   },
-  "gitHead": "7dd99cc12371c6b395ae44771aedbbaa6578ff0a",
+  "gitHead": "dd04c99db382508a714278cbacbdc32889936b6e",
   "publishConfig": {
     "access": "public"
   }
