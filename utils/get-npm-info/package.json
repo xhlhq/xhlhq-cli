@@ -13,9 +13,6 @@
   "files": [
     "lib"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/xhlhq/xhlhq-cli.git"
@@ -30,5 +27,9 @@
     "axios": "^0.26.1",
     "semver": "^7.3.5",
     "url-join": "^4.0.1"
+  },
+  "gitHead": "dd04c99db382508a714278cbacbdc32889936b6e",
+  "publishConfig": {
+    "access": "public"
   }
 }
