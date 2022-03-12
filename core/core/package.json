@@ -1,6 +1,6 @@
 {
   "name": "@xhlhq-cli/core",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "cli core",
   "keywords": [
     "xhlhq-cli",
@@ -24,8 +24,8 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
+    "@xhlhq-cli/get-npm-info": "^1.0.6",
     "@xhlhq-cli/log": "^1.0.5",
-    "@xhlhq-cli/get-npm-info": "^1.0.5",
     "colors": "^1.4.0",
     "dotenv": "^16.0.0",
     "import-local": "^3.1.0",
