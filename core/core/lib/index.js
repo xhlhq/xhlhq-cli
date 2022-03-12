@@ -7,8 +7,6 @@ const log = require('@xhlhq-cli/log')
 const colors = require('colors/safe')
 const semver = require('semver')
 const userHome = require('user-home')
-const {homedir} = require('os')
-const untildify = require('untildify');
 const pathExists = require('path-exists').sync
 const minimist = require('minimist')
 
@@ -16,9 +14,8 @@ const pkg = require('../package.json')
 const constant = require('./const')
 
 let args;
-let config;
 
-function core() {
+async function core() {
     try {
         checkPkgVersion();
         checkNodeVersion();
@@ -26,6 +23,7 @@ function core() {
         checkUserHome();
         chectInputArgs();
         checkEnv()
+        checkGlobalUpdate()
         // debug模式
         log.verbose('debug','test debug log');
     } catch (error) {
@@ -82,15 +80,48 @@ function checkArgs() {
 // 检查环境变量
 function checkEnv() {
     const dotenv = require('dotenv')
-    // 查找环境变量的位置
+    // 查找环境变量的位置,放在主目录下的 .env 中
     const dotenvPath = path.resolve(userHome, '.env')
-    console.log('获取主目录',dotenvPath)
-    console.log('ss',homedir())
     // 如果存在则获取环境变量
     if(pathExists(dotenvPath)) {
-        config = dotenv.config({
+        dotenv.config({
             path: dotenvPath
         })
     }
-    console.log('config',config)
+    // config = createDefaultConfig()
+    createDefaultConfig()
+}
+
+// 当用户未配置环境变量时，默认的环境变量配置
+function createDefaultConfig() {
+    const cliConfig = {
+        home: userHome
+    }
+    if(process.env.CLI_HOME){
+        // 如果配置了环境变量
+        cliConfig['cliHome'] = path.join(userHome,process.env.CLI_HOME);
+    }else{
+        // 没有配置环境变量则采用默认配置
+        cliConfig['cliHome'] = path.join(userHome, constant.DEFAULT_CLI_HOME);
+    }
+    process.env.CLI_HOME_PATH = cliConfig.cliHome
+    return cliConfig
+}
+
+// 检查脚手架版本
+async function checkGlobalUpdate() {
+    //1.获取当前的版本和模块名
+    const currentNodeVersion = pkg.version;
+    const npmName = pkg.name;
+    //2.调用npm API,获取最新版本号
+    const { getSemverVersion } = require('@xhlhq-cli/get-npm-info')
+
+    const lastVersions = await getSemverVersion(npmName,currentNodeVersion)
+    //3.比对当前版本号和最新版本号
+    // 判断是否有最新的version并且最新的version大于当前version
+    if(lastVersions && semver.gt(lastVersions,currentNodeVersion)){
+        log.warn(colors.yellow('版本更新',`请手动更新${npmName}，当前版本为：${currentNodeVersion}，最新版本为：${lastVersions}
+            更新命令：npm install -g ${npmName}`))
+    }
+    //4.根据对比提示用户是否更新到最新版本号
 }
