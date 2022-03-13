@@ -1,6 +1,6 @@
 {
   "name": "@xhlhq-cli/exec",
-  "version": "1.0.0",
+  "version": "1.0.8",
   "description": "@xhlhq-cli/exec",
   "author": "fanwei <2874864487@qq.com>",
   "homepage": "https://github.com/xhlhq/xhlhq-cli#readme",
@@ -28,7 +28,7 @@
     "url": "https://github.com/xhlhq/xhlhq-cli/issues"
   },
   "dependencies": {
-    "@xhlhq-cli/package": "^1.0.0",
-    "@xhlhq-cli/log": "^1.0.5"
+    "@xhlhq-cli/log": "^1.0.5",
+    "@xhlhq-cli/package": "^1.0.8"
   }
 }
