@@ -8,29 +8,33 @@ const colors = require('colors/safe')
 const semver = require('semver')
 const userHome = require('user-home')
 const pathExists = require('path-exists').sync
-const minimist = require('minimist')
+const {Command} = require('commander')
+
+const init = require('@xhlhq-cli/init')
+const exec = require('@xhlhq-cli/exec')
 
 const pkg = require('../package.json')
 const constant = require('./const')
 
-let args;
+const program = new Command();
 
 async function core() {
     try {
-        checkPkgVersion();
-        checkNodeVersion();
-        checkRoot();
-        checkUserHome();
-        chectInputArgs();
-        checkEnv()
-        checkGlobalUpdate()
-        // debug模式
-        log.verbose('debug','test debug log');
+        prepare()
+        registerCommand()
     } catch (error) {
         log.error(error.message)
     }
 }
-
+// 准备阶段操作
+async function prepare() {
+    checkPkgVersion();
+    checkNodeVersion();
+    checkRoot();
+    checkUserHome();
+    checkEnv()
+    checkGlobalUpdate()
+}
 // 检查脚手架版本号
 function checkPkgVersion() {
     log.info('xhlhq-cli',pkg.version);
@@ -59,22 +63,6 @@ function checkUserHome() {
     if(!userHome || !pathExists(userHome)){
         throw new Error(colors.red('当前登录用户主目录不存在！'))
     }
-}
-
-// 检查入参
-function chectInputArgs() {
-    args = minimist(process.argv.slice(2))
-    checkArgs()
-}
-
-// 处理参数
-function checkArgs() {
-    if(args.debug){
-        process.env.LOG_LEVEL = 'verbose'
-    }else{
-        process.env.LOG_LEVEL = 'info'
-    }
-    log.level = process.env.LOG_LEVEL
 }
 
 // 检查环境变量
@@ -118,10 +106,52 @@ async function checkGlobalUpdate() {
 
     const lastVersions = await getSemverVersion(npmName,currentNodeVersion)
     //3.比对当前版本号和最新版本号
+    //4.根据对比提示用户是否更新到最新版本号
     // 判断是否有最新的version并且最新的version大于当前version
     if(lastVersions && semver.gt(lastVersions,currentNodeVersion)){
         log.warn(colors.yellow('版本更新',`请手动更新${npmName}，当前版本为：${currentNodeVersion}，最新版本为：${lastVersions}
             更新命令：npm install -g ${npmName}`))
     }
-    //4.根据对比提示用户是否更新到最新版本号
+}
+
+// 注册脚手架命令
+function registerCommand() {
+    program
+    .name(Object.keys(pkg.bin)[0])
+    .usage('<command> [options]')
+    .version(pkg.version)
+    .option('-d, --debug','是否开启调试模式',false)
+    .option('-tp, --targetPath <targetPath>','是否指定本地调试文件路径','')
+    // 注册命令
+    program
+    .command('init [projectName]')
+    .option('-f, --force','是否强制初始化项目')
+    .description('初始化脚手架项目')
+    .action(exec);
+    // 监听debug，确定是否开启debug模式
+    program.on('option:debug',function() {
+        const options = program.opts()
+        if(options.debug){
+            process.env.LOG_LEVEL = 'verbose'
+        }else{
+            process.env.LOG_LEVEL = 'info'
+        }
+        log.level = process.env.LOG_LEVEL
+        log.verbose('debug模式启动')
+    })
+    // 监听本地调试文件路径
+    program.on('option:targetPath',function() {
+        const options = program.opts()
+        process.env.CLI_TARGET_PATH = options.targetPath
+    })
+    // 错误命令后的提示
+    program.showHelpAfterError();
+    // 当用户不输入option时，打印help
+    if(process.argv.length < 3) {
+        console.log()
+        program.outputHelp();
+        console.log()
+    }
+
+    program.parse(process.argv)
 }

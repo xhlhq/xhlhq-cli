@@ -1,0 +1,34 @@
+{
+  "name": "@xhlhq-cli/exec",
+  "version": "1.0.0",
+  "description": "@xhlhq-cli/exec",
+  "author": "fanwei <2874864487@qq.com>",
+  "homepage": "https://github.com/xhlhq/xhlhq-cli#readme",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "gitHead": "dd04c99db382508a714278cbacbdc32889936b6e",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xhlhq/xhlhq-cli.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/xhlhq/xhlhq-cli/issues"
+  },
+  "dependencies": {
+    "@xhlhq-cli/package": "^1.0.0",
+    "@xhlhq-cli/log": "^1.0.5"
+  }
+}
