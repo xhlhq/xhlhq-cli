@@ -24,6 +24,10 @@ async function core() {
         registerCommand()
     } catch (error) {
         log.error(error.message)
+        // 在debug模式下打印错误的详细信息
+        if(process.env.LOG_LEVEL === 'verbose') {
+            console.log(error)
+        }
     }
 }
 // 准备阶段操作

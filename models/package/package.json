@@ -30,6 +30,8 @@
   "dependencies": {
     "@xhlhq-cli/format-path": "^1.0.8",
     "@xhlhq-cli/utils": "^1.0.8",
+    "@xhlhq-cli/get-npm-info": "^1.0.0",
+    "npminstall": "^5.5.0",
     "pkg-dir": "5.x"
   }
 }

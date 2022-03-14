@@ -2,10 +2,12 @@
 
 const pkgDir = require('pkg-dir').sync
 const path = require('path')
+const npminstall = require('npminstall')
 
 const {isObject} = require("@xhlhq-cli/utils")
 const formatPath = require('@xhlhq-cli/format-path')
-
+const { getDefaultRegistry } = require('@xhlhq-cli/get-npm-info')
+ 
 class Package {
     constructor(options) {
         if(!options || !isObject(options)) {
@@ -13,6 +15,8 @@ class Package {
         }
         // package的路径
         this.targetPath = options.targetPath;
+        // 缓存的路径
+        this.storeDir = options.storeDir;
         // package的name
         this.packageName = options.packageName;
         // package的version
@@ -24,7 +28,15 @@ class Package {
     }
     // 安装Package
     install() {
-
+            return npminstall({
+            // install root dir
+            root: this.targetPath,
+            storeDir: this.storeDir,
+            registry: getDefaultRegistry(),
+            pkgs: [
+                { name: this.packageName, version: this.packageVersion },
+            ],
+        });
     }
     // 更新Package
     update() {

@@ -1,8 +1,8 @@
 'use strict';
 
-function init(projectName,cmdObj) {
+function init(projectName,Options,cmdObj) {
     // TODO
-    console.log(projectName,cmdObj)
+    console.log('projectName:',projectName,'Options:',Options,'cmdObj:',cmdObj)
 }
 
 module.exports = init;
