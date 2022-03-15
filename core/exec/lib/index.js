@@ -40,13 +40,13 @@ async function exec() {
             packageName,
             packageVersion
         })
-        if(pkg.exists()) {
+        if(await pkg.exists()) {
             // 存在pkg，则更新package
+            await pkg.update()
         }else{
             // 不存在。安装pkg
             await pkg.install()
         }
-        console.log('pkg',pkg)
     }  else{
         // 命令中指定了路径
         // xhlhq-cli init pkg1 -f --targetPath D:\xhlhq\xhlhq-cli\commands\init\lib
@@ -56,6 +56,7 @@ async function exec() {
             packageVersion
         })
     }
+    
     // 获取倒要执行的文件路径
     const rootFilePath = pkg.getRootFilePath()
     // 通过require获取到文件并执行文件
