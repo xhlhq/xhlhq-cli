@@ -59,9 +59,12 @@ async function exec() {
     
     // 获取倒要执行的文件路径
     const rootFilePath = pkg.getRootFilePath()
+    // console.log('root',rootFilePath)
     // 通过require获取到文件并执行文件
     if(rootFilePath) {
+        // 在当前进程下调用
         require(rootFilePath).apply(null,arguments)
+        // 在node子进程中调用
     }
 }
 

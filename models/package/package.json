@@ -1,6 +1,6 @@
 {
   "name": "@xhlhq-cli/package",
-  "version": "1.0.9",
+  "version": "1.0.8",
   "description": "@xhlhq-cli module",
   "author": "fanwei <2874864487@qq.com>",
   "homepage": "https://github.com/xhlhq/xhlhq-cli#readme",
@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@xhlhq-cli/format-path": "^1.0.8",
-    "@xhlhq-cli/get-npm-info": "^1.0.9",
+    "@xhlhq-cli/get-npm-info": "^1.0.8",
     "@xhlhq-cli/utils": "^1.0.8",
     "fs-extra": "^10.0.1",
     "npminstall": "^5.5.0",
