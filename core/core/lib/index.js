@@ -33,7 +33,7 @@ async function core() {
 // 准备阶段操作
 async function prepare() {
     checkPkgVersion();
-    checkNodeVersion();
+    // checkNodeVersion();
     checkRoot();
     checkUserHome();
     checkEnv()
