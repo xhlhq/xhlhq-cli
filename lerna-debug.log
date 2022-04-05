@@ -1,6 +1,4 @@
-76 error Error: Command failed with exit code 128: git tag v1.0.9 -m v1.0.9
-76 error fatal: tag 'v1.0.9' already exists
-76 error     at makeError (D:\xhlhq\xhlhq-cli\node_modules\execa\lib\error.js:60:11)
-76 error     at handlePromise (D:\xhlhq\xhlhq-cli\node_modules\execa\index.js:118:26)
-76 error     at processTicksAndRejections (internal/process/task_queues.js:95:5)
-76 error     at async Promise.all (index 0)
+81 error Error: Command failed with exit code 128: git push --follow-tags --no-verify --atomic origin master
+81 error fatal: unable to access 'https://github.com/xhlhq/xhlhq-cli.git/': OpenSSL SSL_read: Connection was reset, errno 10054
+81 error     at makeError (D:\xhlhq\xhlhq-cli\node_modules\execa\lib\error.js:60:11)
+81 error     at handlePromise (D:\xhlhq\xhlhq-cli\node_modules\execa\index.js:118:26)
