@@ -1,6 +1,6 @@
 {
   "name": "@xhlhq-cli/core",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "cli core",
   "keywords": [
     "xhlhq-cli",
@@ -24,9 +24,9 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@xhlhq-cli/exec": "^1.0.8",
-    "@xhlhq-cli/get-npm-info": "^1.0.8",
-    "@xhlhq-cli/init": "^1.0.8",
+    "@xhlhq-cli/exec": "^1.0.9",
+    "@xhlhq-cli/get-npm-info": "^1.0.9",
+    "@xhlhq-cli/init": "^1.0.9",
     "@xhlhq-cli/log": "^1.0.5",
     "colors": "^1.4.0",
     "commander": "^9.0.0",

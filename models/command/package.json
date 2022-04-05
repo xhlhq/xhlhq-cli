@@ -1,6 +1,6 @@
 {
   "name": "@xhlhq-cli/command",
-  "version": "1.0.0",
+  "version": "1.0.9",
   "description": "xhlhq-cli",
   "keywords": [
     "command"
@@ -30,9 +30,9 @@
     "url": "https://github.com/xhlhq/xhlhq-cli/issues"
   },
   "dependencies": {
-    "colors": "^1.4.0",
-    "semver": "^7.3.5",
     "@xhlhq-cli/log": "^1.0.5",
-    "@xhlhq-cli/utils": "^1.0.8"
+    "@xhlhq-cli/utils": "^1.0.9",
+    "colors": "^1.4.0",
+    "semver": "^7.3.5"
   }
 }
