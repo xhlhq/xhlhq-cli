@@ -1,10 +1,6 @@
-15 error Error: Command failed with exit code 1: git remote update
-15 error fatal: unable to access 'https://github.com/xhlhq/xhlhq-cli.git/': OpenSSL SSL_read: Connection was reset, errno 10054
-15 error error: Could not fetch origin
-15 error Fetching origin
-15 error     at makeError (D:\xhlhq\xhlhq-cli\node_modules\execa\lib\error.js:60:11)
-15 error     at Function.module.exports.sync (D:\xhlhq\xhlhq-cli\node_modules\execa\index.js:194:17)
-15 error     at Object.execSync (D:\xhlhq\xhlhq-cli\node_modules\@lerna\child-process\index.js:39:16)
-15 error     at updateRemote (D:\xhlhq\xhlhq-cli\node_modules\@lerna\version\lib\is-behind-upstream.js:34:16)
-15 error     at isBehindUpstream (D:\xhlhq\xhlhq-cli\node_modules\@lerna\version\lib\is-behind-upstream.js:16:3)
-15 error     at VersionCommand.initialize (D:\xhlhq\xhlhq-cli\node_modules\@lerna\version\index.js:153:9)
+76 error Error: Command failed with exit code 128: git tag v1.0.9 -m v1.0.9
+76 error fatal: tag 'v1.0.9' already exists
+76 error     at makeError (D:\xhlhq\xhlhq-cli\node_modules\execa\lib\error.js:60:11)
+76 error     at handlePromise (D:\xhlhq\xhlhq-cli\node_modules\execa\index.js:118:26)
+76 error     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+76 error     at async Promise.all (index 0)
