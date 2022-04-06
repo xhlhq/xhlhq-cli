@@ -8,6 +8,8 @@ const semver = require('semver')
 const Command = require('@xhlhq-cli/command')
 const log = require('@xhlhq-cli/log')
 
+const getProjectTemplate = require('./getProjectTemplate')
+
 const TYPE_PROJECT = 'project';
 const TYPE_COMPONENT = 'component';
 
@@ -24,7 +26,9 @@ class InitCommand extends Command {
             const projectInfo = await this.prepare()
             if (projectInfo) {
                 log.verbose('projectInfo', projectInfo)
+                this.projectInfo = projectInfo
                 // 2. 下载模板
+                this.downloadTemplate()
                 // 3. 安装模板
             }
         } catch (error) {
@@ -33,6 +37,13 @@ class InitCommand extends Command {
     }
     // 前置准备工作
     async prepare() {
+        // 判断项目模板是否存在
+        const template = await getProjectTemplate()
+        console.log('template',template)
+        if(!template.list || template.list.length === 0) {
+            throw new Error('项目模板不存在')
+        }
+        this.template = template.list
         // 当前文件目录路径
         const localPath = process.cwd();
         // 1. 判断当前目录是否为空
@@ -70,6 +81,7 @@ class InitCommand extends Command {
     }
     // 下载项目模板
     downloadTemplate() {
+        console.log('projectInfo',this.projectInfo,'template',this.template)
         // 1 通过项目模板api获取项目模板信息
         // 1.1 通过egg.js搭建一套后端系统
         // 1.2 通过npm存储项目模板

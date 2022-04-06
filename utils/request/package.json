@@ -1,7 +1,7 @@
 {
-  "name": "@xhlhq-cli/init",
+  "name": "@xhlhq-cli/request",
   "version": "1.0.10",
-  "description": "@xhlhq-cli init",
+  "description": "request xhlhq-cli",
   "author": "fanwei <2874864487@qq.com>",
   "homepage": "https://github.com/xhlhq/xhlhq-cli#readme",
   "license": "ISC",
@@ -13,17 +13,12 @@
   "files": [
     "lib"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/xhlhq/xhlhq-cli.git"
-  },
-  "dependencies": {
-    "@xhlhq-cli/command": "^1.0.10",
-    "@xhlhq-cli/log": "^1.0.5",
-    "@xhlhq-cli/request": "^1.0.10",
-    "fs-extra": "^10.0.1",
-    "inquirer": "^8.2.2",
-    "semver": "^7.3.5"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
@@ -31,8 +26,7 @@
   "bugs": {
     "url": "https://github.com/xhlhq/xhlhq-cli/issues"
   },
-  "gitHead": "dd04c99db382508a714278cbacbdc32889936b6e",
-  "publishConfig": {
-    "access": "public"
+  "dependencies": {
+    "axios": "^0.26.1"
   }
 }
