@@ -18,6 +18,7 @@
   "devDependencies": {
     "lerna": "^4.0.0"
   },
+  "gitHead": "dd04c99db382508a714278cbacbdc32889936b6e",
   "dependencies": {
     "xhlhq-cli": "^1.0.1"
   }

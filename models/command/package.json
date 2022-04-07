@@ -29,6 +29,7 @@
   "bugs": {
     "url": "https://github.com/xhlhq/xhlhq-cli/issues"
   },
+  "gitHead": "dd04c99db382508a714278cbacbdc32889936b6e",
   "dependencies": {
     "@xhlhq-cli/log": "^1.0.5",
     "@xhlhq-cli/utils": "^1.0.11",

@@ -26,6 +26,7 @@
   "bugs": {
     "url": "https://github.com/xhlhq/xhlhq-cli/issues"
   },
+  "gitHead": "dd04c99db382508a714278cbacbdc32889936b6e",
   "dependencies": {
     "axios": "^0.26.1"
   }
