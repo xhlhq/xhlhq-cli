@@ -1,6 +1,6 @@
 {
   "name": "@xhlhq-cli/core",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "cli core",
   "keywords": [
     "xhlhq-cli",
@@ -26,7 +26,7 @@
   "dependencies": {
     "@xhlhq-cli/exec": "^1.0.11",
     "@xhlhq-cli/get-npm-info": "^1.0.11",
-    "@xhlhq-cli/init": "^1.0.11",
+    "@xhlhq-cli/init": "^1.0.12",
     "@xhlhq-cli/log": "^1.0.5",
     "colors": "^1.4.0",
     "commander": "^9.0.0",
