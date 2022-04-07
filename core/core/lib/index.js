@@ -1,5 +1,5 @@
 'use strict';
-
+// lerna publish
 module.exports = core;
 
 const path = require('path')

@@ -1,5 +1,5 @@
 'use strict';
-
+// lerna publish
 const path = require('path')
 
 function formatPath(p) {

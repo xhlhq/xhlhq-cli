@@ -1,5 +1,5 @@
 'use strict';
-
+// lerna publish
 const fs = require('fs')
 const inquirer = require('inquirer')
 const fse = require('fs-extra')

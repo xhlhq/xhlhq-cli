@@ -1,5 +1,5 @@
 'use strict';
-
+// lerna publish
 const axios = require('axios')
 const urlJoin = require('url-join')
 const semver = require('semver')

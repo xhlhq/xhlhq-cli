@@ -1,5 +1,5 @@
 'use strict';
-
+// lerna publish
 const colors = require('colors/safe')
 const semver = require('semver')
 

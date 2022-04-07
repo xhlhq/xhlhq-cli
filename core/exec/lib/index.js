@@ -1,5 +1,5 @@
 'use strict';
-
+// lerna publish
 const path = require('path')
 const cp = require('child_process')
 

@@ -1,5 +1,5 @@
 'use strict';
-
+// lerna publish
 const log = require('npmlog')
 
 //定义前缀

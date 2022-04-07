@@ -1,5 +1,5 @@
 'use strict';
-
+// lerna publish
 const pkgDir = require('pkg-dir').sync
 const path = require('path')
 const npminstall = require('npminstall')

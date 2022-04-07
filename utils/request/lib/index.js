@@ -1,5 +1,5 @@
 'use strict';
-
+// lerna publish
 const axios = require('axios')
 const BASE_URL = process.env.XHLHQ_CLI_BASE_URL || 'http://localhost:3003'
 
