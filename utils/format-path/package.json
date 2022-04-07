@@ -1,6 +1,6 @@
 {
   "name": "@xhlhq-cli/format-path",
-  "version": "1.0.8",
+  "version": "1.0.13",
   "description": "@xhlhq-cli",
   "keywords": [
     "路径兼容"
